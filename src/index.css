@@ -5,22 +5,24 @@
   box-sizing: border-box;
 }
 
-/* 定义明亮主题的 CSS 变量 */
+/* 明亮主题 */
 :root {
   --bg-color: #f9f9f9;
   --text-color: #333;
-  --card-bg: white;
+  --card-bg: transparent;
   --border-color: #eaecef;
   --code-bg: #f4f6f9;
+  --bg-image: url("./assets/1.jpg");
 }
 
-/* 暗黑主题的 CSS 变量（覆盖） */
+/* 暗黑主题 */
 .dark {
   --bg-color: #1a1a1a;
   --text-color: #f0f0f0;
-  --card-bg: #2c2c2c;
+  --card-bg: transparent;
   --border-color: #444;
   --code-bg: #2d2d2d;
+  --bg-image: url("./assets/2.jpg");
 }
 
 body {
@@ -28,5 +30,30 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
-  transition: background-color 0.3s, color 0.3s;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ============= 核心：强制顶部栏 + 所有卡片透明 ============= */
+header,
+.navbar,
+.top-bar,
+.blog-header,
+.card,
+div[class*="header"],
+div[class*="top"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* ============= 去掉所有文字描边 / 文字阴影 ============= */
+* {
+  text-shadow: none !important;
+  -webkit-text-stroke: unset !important;
 }
